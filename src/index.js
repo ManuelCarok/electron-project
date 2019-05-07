@@ -45,4 +45,5 @@ app.on('ready', () => {
 
     win.loadURL(`file://${ __dirname }/renderer/index.html`); // cargar un archivo html local
     // win.loadURL('https://devdocs.io/'); // cargar una web en electron
+    win.toggleDevTools();
 });

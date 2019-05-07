@@ -26,7 +26,7 @@ se crea script en package.json:
 ```
 
 
-Herramientas:
+Herramientas de desarrollo:
 
 Instalar electron compile: 
 
@@ -37,3 +37,15 @@ Instalar electron compile:
 variables de entorno:
 
 `npm i cross-env --save`
+
+formateador de codigo y verificador de codigo
+
+`npm install standard --save-dev`
+
+electron-debug:
+
+`npm install electron-debug`
+
+herramienta oficial de electron:
+
+`npm install --save-dev devtron`
