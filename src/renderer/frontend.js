@@ -46,6 +46,12 @@ function searImagesEvent() {
             }
 
             selectFirstImage();
+        } else {
+            const thumbs = document.querySelectorAll('li.hidden');
+
+            for (let i = 0, lengthT = thumbs.length; i < lengthT; i++) {
+                thumbs[i].classList.remove('hidden');
+            }
         }
     });
 }
