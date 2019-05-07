@@ -6,4 +6,8 @@ Ejecutar en el directorio creado por cmd `npm init`
 
 crear gitignore con: 
 
-Instalar electron: `npm i electron --save`
+```
+
+```
+
+Instalar electron: `npm i electron --save` (no se recomienda instalar de forma global)
