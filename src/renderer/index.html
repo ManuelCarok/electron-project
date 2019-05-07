@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hola Mundo!</title>
     <link rel="stylesheet" href="../assets/photon/css/photon.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script src="frontend.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
@@ -13,11 +14,85 @@
     <div class="window">
         <div class="window-content">
             <div class="pane-group">
-                <div class="pane">...</div>
-                <div class="pane">...</div>
-                <div class="pane">...</div>
+                <div class="pane pane-sm sidebar">
+                    <ul class="list-group">
+                        <li class="list-group-header">
+                            <input class="form-control" type="text" placeholder="Search for someone">
+                        </li>
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../assets/img/logo.png" width="32" height="32">
+                            <div class="media-body">
+                                <strong>imagen.png</strong>
+                                <p>2 MB</p>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <img class="media-object pull-left" src="../assets/img/logo.jpg" width="32" height="32">
+                            <div class="media-body">
+                                <strong>imagen.png</strong>
+                                <p>2 MB</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pane">
+                    <div class="image-view full-height">
+                        <header class="toolbar toolbar-header image-toolbar">
+                            <!-- <h1 class="title">Header with actions</h1> -->
+
+                            <div class="toolbar-actions">
+                                <div class="btn-group">
+                                    <button class="btn btn-default">
+                                                  <span class="icon icon-folder icon-text"></span>
+                                                  Abrir
+                                                </button>
+                                    <!-- <button class="btn btn-default">
+                                                  <span class="icon icon-folder"></span>
+                                                </button>
+                                            <button class="btn btn-default active">
+                                                  <span class="icon icon-cloud"></span>
+                                                </button>
+                                            <button class="btn btn-default">
+                                                  <span class="icon icon-popup"></span>
+                                                </button>
+                                            <button class="btn btn-default">
+                                                  <span class="icon icon-shuffle"></span>
+                                                </button> -->
+                                </div>
+
+                                <button class="btn btn-default pull-right">
+                                        <span class="icon icon-download icon-text"></span>
+                                        Guardar
+                                      </button>
+
+                                <select id="filters" class="pull-right">
+                                           <option value="none">Ninguno</option>
+                                           <option value="sepia">Sepia</option>
+                                       </select>
+
+                                <label for="" class="pull-right filter-label"> Filtros:</label>
+
+                                <!-- <button class="btn btn-default">
+                                                <span class="icon icon-home icon-text"></span>
+                                                Filters
+                                              </button>
+                        
+                                        <button class="btn btn-default btn-dropdown pull-right">
+                                                <span class="icon icon-megaphone"></span>
+                                              </button> -->
+                            </div>
+                        </header>
+
+                        <div class="image-container">
+                            <img src="../assets/img/logo.png" alt="logo" id="image-displayed">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer class="toolbar toolbar-footer">
+            Footer
+        </footer>
     </div>
 </body>
 

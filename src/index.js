@@ -1,10 +1,10 @@
 'use strict'
 
 // Instanciando los objectos app y BrowserWindow
-import { app, BrowserWindow }  from 'electron';
+import { app, BrowserWindow } from 'electron';
 import devtools from './devtools';
 
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
     devtools();
 }
 
@@ -18,7 +18,7 @@ app.on('ready', () => {
 
     // creando una ventana
     let win = new BrowserWindow({
-        width: 800, // Ancho px
+        width: 1200, // Ancho px
         height: 600, // Alto px
         title: 'Electron project', // Titulo de la ventana
         center: true, // Se muestre en el centro de la pantalla
