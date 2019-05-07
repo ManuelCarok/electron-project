@@ -1,7 +1,12 @@
 'use strict'
 
 // Instanciando los objectos app y BrowserWindow
-const { app, BrowserWindow } = require('electron');
+import { app, BrowserWindow }  from 'electron';
+import devtools from './devtools';
+
+if(process.env.NODE_ENV === 'development') {
+    devtools();
+}
 
 // imprimiendo un mensaje por consola antes de salir
 app.on('before-quit', () => {
@@ -38,5 +43,6 @@ app.on('ready', () => {
         app.quit();
     });
 
-    win.loadURL('https://devdocs.io/'); // cargar una web en electron
+    win.loadURL(`file://${ __dirname }/renderer/index.html`); // cargar un archivo html local
+    // win.loadURL('https://devdocs.io/'); // cargar una web en electron
 });
