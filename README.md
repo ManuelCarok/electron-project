@@ -49,3 +49,9 @@ electron-debug:
 herramienta oficial de electron:
 
 `npm install --save-dev devtron`
+
+Framework Frontend para electron:
+
+Photon kit: http://photonkit.com/
+
+Xel: https://xel-toolkit.org/
