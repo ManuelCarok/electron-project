@@ -2,7 +2,7 @@ import os from 'os';
 import url from 'url';
 import path from 'path';
 import applyFilter from './filters';
-import { setIpc, sendIpc } from './ipcRendererEvents';
+import { setIpc, openDirectory } from './ipcRendererEvents';
 
 window.addEventListener('load', () => {
     // document.getElementById('mensaje').innerHTML = "este es un mensaje";
@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
     addImagesEvents();
     searImagesEvent();
     selectEvent();
-    openDirectory();
+    buttonEvent('open-directory', openDirectory);
 });
 
 function addImagesEvents() {
@@ -80,10 +80,8 @@ function selectEvent() {
     })
 }
 
-function openDirectory() {
-    const open = document.getElementById('open-directory');
+function buttonEvent(id, func) {
+    const open = document.getElementById(id);
 
-    open.addEventListener('click', () => {
-        sendIpc();
-    });
+    open.addEventListener('click', func);
 }

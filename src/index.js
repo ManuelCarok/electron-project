@@ -1,8 +1,10 @@
 'use strict'
 
 // Instanciando los objectos app y BrowserWindow
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import devtools from './devtools';
+
+let win;
 
 if (process.env.NODE_ENV === 'development') {
     devtools();
@@ -17,7 +19,7 @@ app.on('before-quit', () => {
 app.on('ready', () => {
 
     // creando una ventana
-    let win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 1200, // Ancho px
         height: 600, // Alto px
         title: 'Electron project', // Titulo de la ventana
@@ -48,7 +50,13 @@ app.on('ready', () => {
     win.toggleDevTools();
 });
 
-ipcMain.on('ping', (event, arg) => {
-    console.log(`ping - ${ arg }`);
-    event.sender.send('pong', new Date());
+ipcMain.on('open-directory', (event) => {
+    dialog.showOpenDialog(win, {
+        title: 'Seleccione la nueva ubicacion',
+        buttonLabel: 'Abrir ubicación',
+        properties: ['openDirectory']
+    }, (dir) => {
+        console.log(dir);
+
+    });
 });
