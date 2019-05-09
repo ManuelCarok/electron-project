@@ -2,13 +2,16 @@ import os from 'os';
 import url from 'url';
 import path from 'path';
 import applyFilter from './filters';
+import { setIpc, sendIpc } from './ipcRendererEvents';
 
 window.addEventListener('load', () => {
     // document.getElementById('mensaje').innerHTML = "este es un mensaje";
     // console.log(os.cpus());
+    setIpc();
     addImagesEvents();
     searImagesEvent();
     selectEvent();
+    openDirectory();
 });
 
 function addImagesEvents() {
@@ -75,4 +78,12 @@ function selectEvent() {
     select.addEventListener('change', function() {
         applyFilter(this.value, document.getElementById('image-displayed'));
     })
+}
+
+function openDirectory() {
+    const open = document.getElementById('open-directory');
+
+    open.addEventListener('click', () => {
+        sendIpc();
+    });
 }

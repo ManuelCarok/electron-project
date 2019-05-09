@@ -1,7 +1,7 @@
 'use strict'
 
 // Instanciando los objectos app y BrowserWindow
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import devtools from './devtools';
 
 if (process.env.NODE_ENV === 'development') {
@@ -46,4 +46,9 @@ app.on('ready', () => {
     win.loadURL(`file://${ __dirname }/renderer/index.html`); // cargar un archivo html local
     // win.loadURL('https://devdocs.io/'); // cargar una web en electron
     win.toggleDevTools();
+});
+
+ipcMain.on('ping', (event, arg) => {
+    console.log(`ping - ${ arg }`);
+    event.sender.send('pong', new Date());
 });
