@@ -1,12 +1,14 @@
 import os from 'os';
 import url from 'url';
 import path from 'path';
+import applyFilter from './filters';
 
 window.addEventListener('load', () => {
     // document.getElementById('mensaje').innerHTML = "este es un mensaje";
-    console.log(os.cpus());
+    // console.log(os.cpus());
     addImagesEvents();
     searImagesEvent();
+    selectEvent();
 });
 
 function addImagesEvents() {
@@ -20,9 +22,13 @@ function addImagesEvents() {
 }
 
 function changeImage(nodo) {
-    document.querySelector('li.selected').classList.remove('selected');
-    nodo.classList.add('selected');
-    document.getElementById('image-displayed').src = nodo.querySelector('img').src;
+    if (nodo) {
+        document.querySelector('li.selected').classList.remove('selected');
+        nodo.classList.add('selected');
+        document.getElementById('image-displayed').src = nodo.querySelector('img').src;
+    } else {
+        document.getElementById('image-displayed').src = '';
+    }
 }
 
 function searImagesEvent() {
@@ -52,6 +58,8 @@ function searImagesEvent() {
             for (let i = 0, lengthT = thumbs.length; i < lengthT; i++) {
                 thumbs[i].classList.remove('hidden');
             }
+
+            selectFirstImage();
         }
     });
 }
@@ -59,4 +67,12 @@ function searImagesEvent() {
 function selectFirstImage() {
     const img = document.querySelector('li.list-group-item:not(.hidden)');
     changeImage(img);
+}
+
+function selectEvent() {
+    const select = document.getElementById('filters');
+
+    select.addEventListener('change', function() {
+        applyFilter(this.value, document.getElementById('image-displayed'));
+    })
 }

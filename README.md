@@ -55,3 +55,7 @@ Framework Frontend para electron:
 Photon kit: http://photonkit.com/
 
 Xel: https://xel-toolkit.org/
+
+Librerias Extras
+
+Filtros: `npm install filterous`
