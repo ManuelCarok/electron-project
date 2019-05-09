@@ -1,4 +1,5 @@
 import { ipcRenderer } from 'electron';
+import { addImagesEvents, changeImage, selectFirstImage } from './images-ui';
 
 function clearImages() {
     const oldImages = document.querySelectorAll('li.list-group-item');
