@@ -26,7 +26,7 @@ se crea script en package.json:
 ```
 
 
-Herramientas de desarrollo:
+## Herramientas de desarrollo:
 
 Instalar electron compile: 
 
@@ -50,12 +50,16 @@ herramienta oficial de electron:
 
 `npm install --save-dev devtron`
 
-Framework Frontend para electron:
+## Framework Frontend para electron:
 
 Photon kit: http://photonkit.com/
 
 Xel: https://xel-toolkit.org/
 
-Librerias Extras
+## Librerias Extras
 
-Filtros: `npm install filterous`
+Filtros: `filterous npm` descargar releases
+
+Imagen: `npm install is-image`
+
+File: `npm install filesize`
