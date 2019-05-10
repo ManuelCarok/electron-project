@@ -38,10 +38,10 @@ app.on('ready', () => {
     });
 
     // dectectando cuando la ventana se mueve
-    win.on('move', () => {
-        const posicion = win.getPosition(); // Trae la posicion de la ventana
-        console.log(`la posicion es ${ posicion }`);
-    });
+    // win.on('move', () => {
+    //     const posicion = win.getPosition(); // Trae la posicion de la ventana
+    //     console.log(`la posicion es ${ posicion }`);
+    // });
 
     // detectando el cierre de la ventana para cerrar la app
     win.on('closed', () => {
@@ -81,6 +81,19 @@ ipcMain.on('open-directory', (event) => {
 
                 event.sender.send('load-images', images);
             });
+        }
+    });
+});
+
+ipcMain.on('open-save-dialog', (event, ext) => {
+
+    dialog.showSaveDialog(win, {
+        title: 'Guardar Imagen',
+        buttonLabel: 'Guardar',
+        filters: [{ name: 'Images', extensions: [ext.substr(1)] }]
+    }, (file) => {
+        if (file) {
+            event.sender.send('save-image', file);
         }
     });
 });

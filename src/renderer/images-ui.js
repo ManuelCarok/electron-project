@@ -20,7 +20,10 @@ function changeImage(nodo) {
         }
 
         nodo.classList.add('selected');
-        document.getElementById('image-displayed').src = nodo.querySelector('img').src;
+        const image = document.getElementById('image-displayed');
+
+        image.src = nodo.querySelector('img').src;
+        image.dataset.original = image.src;
     } else {
         document.getElementById('image-displayed').src = '';
     }
