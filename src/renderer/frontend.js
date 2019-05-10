@@ -1,6 +1,5 @@
 import os from 'os';
 import { setIpc, openDirectory } from './ipcRendererEvents';
-import { setIpc, openDirectory } from './ipcRendererEvents';
 import { addImagesEvents, searImagesEvent, selectEvent } from './images-ui';
 
 window.addEventListener('load', () => {
@@ -15,6 +14,5 @@ window.addEventListener('load', () => {
 
 function buttonEvent(id, func) {
     const open = document.getElementById(id);
-
     open.addEventListener('click', func);
 }

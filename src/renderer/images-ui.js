@@ -14,7 +14,11 @@ function addImagesEvents() {
 
 function changeImage(nodo) {
     if (nodo) {
-        document.querySelector('li.selected').classList.remove('selected');
+        const selected = document.querySelector('li.selected');
+        if (selected) {
+            selected.classList.remove('selected');
+        }
+
         nodo.classList.add('selected');
         document.getElementById('image-displayed').src = nodo.querySelector('img').src;
     } else {
@@ -68,10 +72,34 @@ function selectEvent() {
     })
 }
 
+function clearImages() {
+    const oldImages = document.querySelectorAll('li.list-group-item');
+
+    for (let i = 0; i < oldImages.length; i++) {
+        oldImages[i].parentNode.removeChild(oldImages[i]);
+    }
+}
+
+function loadImages(images) {
+    const imagesList = document.querySelector('ul.list-group');
+    for (let i = 0; i < images.length; i++) {
+        const node = `<li class="list-group-item">
+                            <img class="media-object pull-left" src="${ images[i].src }" width="32" height="32">
+                            <div class="media-body">
+                                <strong>${ images[i].name }</strong>
+                                <p>${ images[i].size }</p>
+                            </div>
+                        </li>`;
+        imagesList.insertAdjacentHTML('beforeend', node);
+    }
+}
+
 module.exports = {
     addImagesEvents: addImagesEvents,
     changeImage: changeImage,
     selectFirstImage: selectFirstImage,
     searImagesEvent: searImagesEvent,
-    selectEvent: selectEvent
+    selectEvent: selectEvent,
+    clearImages: clearImages,
+    loadImages: loadImages
 }
