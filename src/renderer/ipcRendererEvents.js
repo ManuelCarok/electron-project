@@ -1,5 +1,6 @@
 import { ipcRenderer } from 'electron';
 import { addImagesEvents, selectFirstImage, clearImages, loadImages } from './images-ui';
+import { saveImage } from './filters';
 import path from 'path';
 
 function setIpc() {
@@ -11,9 +12,8 @@ function setIpc() {
     });
 
     ipcRenderer.on('save-image', (event, file) => {
-        console.log(file);
-
-    })
+        saveImage(file);
+    });
 }
 
 function openDirectory() {
@@ -22,10 +22,10 @@ function openDirectory() {
 
 function saveFile() {
 
-    // const image = document.getElementById('image-displayed').dataset.original;
-    // const ext = path.extname(image);
-
-    ipcRenderer.send('open-save-dialog', 'ext');
+    const image = document.getElementById('image-displayed').dataset.original;
+    const ext = path.extname(image);
+    
+    ipcRenderer.send('open-save-dialog', ext);
 }
 
 module.exports = {

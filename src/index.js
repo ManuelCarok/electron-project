@@ -85,8 +85,7 @@ ipcMain.on('open-directory', (event) => {
     });
 });
 
-ipcMain.on('open-save-dialog', (event, ext) => {
-
+ipcMain.on('open-save-dialog', (event, ext) => {    
     dialog.showSaveDialog(win, {
         title: 'Guardar Imagen',
         buttonLabel: 'Guardar',

@@ -1,6 +1,6 @@
 import url from 'url';
 import path from 'path';
-import applyFilter from './filters';
+import { applyFilter } from './filters';
 
 function addImagesEvents() {
     const thumbs = document.querySelectorAll('li.list-group-item');
