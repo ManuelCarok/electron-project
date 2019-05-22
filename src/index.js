@@ -3,6 +3,7 @@
 // Instanciando los objectos app y BrowserWindow
 import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import devtools from './devtools';
+import handleErrors from './handle-errors';
 import isImage from 'is-image';
 import filesize from 'filesize';
 import fs from 'fs';
@@ -31,6 +32,8 @@ app.on('ready', () => {
         maximizable: false, // No se puede maximizar
         show: false, // Ventana invisible
     });
+
+    handleErrors(win);
 
     // .once solo se ejecuta una vez, ready-to-show es el evento que se ejecuta cuando el contenido esta listo
     win.once('ready-to-show', () => {
